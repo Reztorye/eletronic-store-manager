@@ -24,7 +24,7 @@ namespace EletronicStoreManager.Entities
 
         public override string ToString()
         {
-            return "ID do fornecedor: " + SupplierId + " | Nome do Fornecedor: " + SupplierName + " | E-mail do Fornecedor: " + SupplierEmail + " | Telefone do Fornecedor: " + SupplierPhone;
+            return "[ID do Fornecedor: " + SupplierId + " | Nome do Fornecedor: " + SupplierName + " | E-mail do Fornecedor: " + SupplierEmail + " | Telefone do Fornecedor: " + SupplierPhone + "]";
         }
 
     }

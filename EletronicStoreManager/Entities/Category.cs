@@ -20,7 +20,7 @@ namespace EletronicStoreManager.Entities
 
         public override string ToString()
         {
-            return "ID da Categoria: " + CategoryId + " | Nome da Categoria: " + CategoryName;
+            return "[ID da Categoria: " + CategoryId + " | Nome da Categoria: " + CategoryName + "]";
         }
     }
 }

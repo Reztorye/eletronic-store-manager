@@ -1,0 +1,70 @@
+# Arquivos de build e diretórios
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Arquivos gerados pelo Visual Studio
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.pdb
+*.ilk
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.sbr
+*.vbw
+*.sln.docstates
+
+# Arquivos de Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Arquivos de pacote
+*.nupkg
+# O diretório de pacotes é o local onde NuGet baixa os pacotes
+# Não é aconselhado comitar o diretório de pacotes em VCS
+# Pacotes não devem ser mantidos no controle de versão, em vez disso, restaurar como parte do processo de build
+packages/
+
+# Arquivos VS Code
+.vscode/
+
+# Arquivos de banco de dados SQL Server
+*.mdf
+*.ldf
+*.ndf
+
+# Arquivos de banco de dados SQLite
+*.db
+*.sqlite
+
+# Arquivos de configuração de usuário do Rider
+.idea/
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de saída
+*.exe
+*.dll
+*.so
+*.dylib
+*.com
+*.test
+*.xml
+
+# Outros arquivos e diretórios
+.DS_Store
+Thumbs.db

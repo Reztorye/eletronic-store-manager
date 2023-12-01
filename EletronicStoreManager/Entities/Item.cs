@@ -9,46 +9,52 @@ namespace EletronicStoreManager.Entities
 {
     internal class Item
     {
-        private int UpId {  get; set; }
-        private int IdItem {  get; set; }
-        private string Name { get; set; }
-        private string Description { get; set; }
-        private double Price { get; set; }
-        private string Color { get; set; }
-        private string Brand { get; set; }
-        private string Model { get; set; }
-        private Category Category { get; set; }
-        private int Stock {  get; set; }
-        private Boolean Availability { get; set; }
-        private DateTime RegistrationDate {  get; set; }
-        //private Warranty Warranty { get; set; }
-        //private List<Reviews> Reviews { get; set; } 
+        public static int UpId {  get; private set; }
+        public long SkuItem {  get; private set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public double Price { get; private set; }
+        public string Color { get; private set; }
+        public string Brand { get; private set; }
+        public string Model { get; private set; }
+        public Supplier Supplier { get; private set; }
+        public Category Category { get; private set; }
+        public int Stock { get; private set; }
+        public Boolean Availability { get; private set; }
+        public DateTime RegistrationDate {  get; private set; }
+        public Warranty Warranty { get; set; }
+        //public List<Reviews> Reviews { get; private set; } 
         //images?
-        //private TechnicalSpecifications TechnicalSpecifications { get; set; } 
-        //private Dimensions Dimensions { get; set; }
-        private double Weight { get; set; }
+        //public TechnicalSpecifications TechnicalSpecifications { get; private set; } 
+        //public Dimensions Dimensions { get; private set; }
+        public double Weight { get; private set; }
 
-        public Item(){}
+        //public Item(){}
 
-        public Item(string name, string description, double price,
-                    int stock, bool availability, DateTime registrationDate)
+        public Item(long skuItem, string name, string description, double price, Supplier supplier, 
+            Category category, Warranty warranty, int stock, bool availability, DateTime registrationDate)
         {
-            IdItem = 1 + UpId++;
+            SkuItem = skuItem;
             Name = name;
             Description = description;
             Price = price;
+            Supplier = supplier;
+            Category = category;
+            Warranty = warranty;
             Stock = stock;
             Availability = availability;
-            RegistrationDate = registrationDate;
+            RegistrationDate = registrationDate;        
         }
 
         public override string ToString()
         {
-            return "[ID do Produto:" + IdItem 
-                + " | Nome do Produto: " + Name 
-                + " | Preco do Produto: " + Price 
-                + " | Estoque do Produto: " + Stock 
-                + " | Data de entrada do Produto: " + RegistrationDate + "]";
+            return "[SKU do Produto: " + SkuItem
+                + " | Nome: " + Name
+                + " | Preco: " + Price
+                + " | Fornecedor: " + Supplier.Name
+                + " | Categoria: " + Category.Name
+                + " | Estoque: " + Stock
+                + " | Data de entrada: " + RegistrationDate.ToString("dd/MM/yyyy") + "]";
         }
     }
 }

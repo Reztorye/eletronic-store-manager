@@ -8,19 +8,20 @@ namespace EletronicStoreManager.Entities
 {
     internal class Category
     {
-        private int UpId {  get; set; }
-        private int CategoryId {  get; set; }
-        private string CategoryName { get; set; }
+        public static int UpId {  get; private set; }
+        public int CategoryId {  get; private set; }
+        public string Name { get; private set; }
 
-        public Category(string categoryName)
+        public Category(string name)
         {
             CategoryId = 1 + UpId++;
-            CategoryName = categoryName;
+            Name = name;
         }
 
         public override string ToString()
         {
-            return "[ID da Categoria: " + CategoryId + " | Nome da Categoria: " + CategoryName + "]";
+            return "[ID da Categoria: " + CategoryId 
+                + " | Nome da Categoria: " + Name + "]";
         }
     }
 }

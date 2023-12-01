@@ -8,24 +8,26 @@ namespace EletronicStoreManager.Entities
 {
     internal class Supplier
     {   
-        private static int upId {  get; set; }
-        private int SupplierId {  get; set; }
-        private string SupplierName { get; set;}
-        private string SupplierEmail { get; set; }
-        private string SupplierPhone {  get; set; }
+        public static int upId {  get; private set; }
+        public int SupplierId {  get; private set; }
+        public string Name { get; private set;}
+        public string Email { get; private set; }
+        public string Phone {  get; private set; }
 
-        public Supplier (string supplierName, string supplierEmail, string supplierPhone)
+        public Supplier (string name, string email, string phone)
         {   
             SupplierId = 1 + upId++;
-            SupplierName = supplierName;
-            SupplierEmail = supplierEmail;
-            SupplierPhone = supplierPhone;
+            Name = name;
+            Email = email;
+            Phone = phone;
         }
 
         public override string ToString()
         {
-            return "[ID do Fornecedor: " + SupplierId + " | Nome do Fornecedor: " + SupplierName + " | E-mail do Fornecedor: " + SupplierEmail + " | Telefone do Fornecedor: " + SupplierPhone + "]";
+            return "[ID do Fornecedor: " + SupplierId 
+                + " | Nome: " + Name 
+                + " | E-mail: " + Email 
+                + " | Telefone: " + Phone + "]";
         }
-
     }
 }

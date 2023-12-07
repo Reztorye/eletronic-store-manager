@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -22,22 +23,20 @@ namespace EletronicStoreManager.Entities
         public int Stock { get; private set; }
         public Boolean Availability { get; private set; }
         public DateTime RegistrationDate {  get; private set; }
-        public Warranty Warranty { get; set; }
-        //public List<Reviews> Reviews { get; private set; } 
+        public Warranty Warranty { get; set; } 
         //images?
-        //public TechnicalSpecifications TechnicalSpecifications { get; private set; } 
-        //public Dimensions Dimensions { get; private set; }
-        public double Weight { get; private set; }
+        public TechnicalSpecifications TechnicalSpecifications { get; set; } 
 
         //public Item(){}
 
-        public Item(long skuItem, string name, string description, double price, Supplier supplier, 
+        public Item(long skuItem, string name, string description, double price, string color, Supplier supplier, 
             Category category, Warranty warranty, int stock, bool availability, DateTime registrationDate)
         {
             SkuItem = skuItem;
             Name = name;
             Description = description;
             Price = price;
+            Color = color;
             Supplier = supplier;
             Category = category;
             Warranty = warranty;
@@ -50,7 +49,7 @@ namespace EletronicStoreManager.Entities
         {
             return "[SKU do Produto: " + SkuItem
                 + " | Nome: " + Name
-                + " | Preco: " + Price
+                + " | Preço: R$ " + Price.ToString("#,##0.00").Replace('.', ',')
                 + " | Fornecedor: " + Supplier.Name
                 + " | Categoria: " + Category.Name
                 + " | Estoque: " + Stock

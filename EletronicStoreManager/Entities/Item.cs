@@ -15,7 +15,8 @@ namespace EletronicStoreManager.Entities
         public long SkuItem {  get; private set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
-        public double Price { get; private set; }
+        public double OriginalPrice { get; private set; }
+        public double Price { get; set; }
         public string Color { get; private set; }
         public string Brand { get; private set; }
         public string Model { get; private set; }
@@ -37,6 +38,7 @@ namespace EletronicStoreManager.Entities
             SkuItem = skuItem;
             Name = name;
             Description = description;
+            OriginalPrice = price;
             Price = price;
             Color = color;
             Supplier = supplier;
@@ -63,6 +65,14 @@ namespace EletronicStoreManager.Entities
         public void SetDiscountedPrice(double discountedPrice)
         {
             DiscountedPrice = discountedPrice;
+        }
+
+        public void ApplyDiscount(double discountPercent)
+        {
+            if (discountPercent > 0 && discountPercent <= 100)
+            {
+                Price = OriginalPrice * (1 - discountPercent / 100);
+            }
         }
     }
 }

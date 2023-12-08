@@ -10,13 +10,14 @@ namespace EletronicStoreManager.Entities
     {
         public int IdUp {  get; private set; }
         public int IdPromotion { get; private set; }
-        public Item ItemWithPromotion { get; private set; }
+        public Item ItemWithPromotion { get;  set; }
         public DateTime BeginDate { get; private set; }
         public DateTime EndDate { get; private set; }
         public double PromotionPercent {  get; private set; }
 
         public Promotion(Item itemWithPromotion, DateTime beginDate, DateTime endDate, double promotionPercent)
         {
+            ApplyPromotion();
             IdPromotion = 1 + IdUp++;
             ItemWithPromotion = itemWithPromotion;
             BeginDate = beginDate;
@@ -33,14 +34,22 @@ namespace EletronicStoreManager.Entities
             }
         }
 
-        public double CalculateDiscountedPrice()
+        public void ApplyPromotion()
         {
-            return ItemWithPromotion.Price * (1 - PromotionPercent / 100);
+            if (IsPromotionValid(DateTime.Now))
+            {
+                ItemWithPromotion.ApplyDiscount(PromotionPercent);
+            }
         }
 
         public bool IsPromotionValid(DateTime currentDate)
         {
             return currentDate >= BeginDate && currentDate <= EndDate;
+        }
+
+        private double CalculateDiscountedPrice()
+        {
+            return ItemWithPromotion.OriginalPrice * (1 - PromotionPercent / 100);
         }
 
         public override string ToString()

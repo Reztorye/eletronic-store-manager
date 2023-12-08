@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -25,7 +26,8 @@ namespace EletronicStoreManager.Entities
         public DateTime RegistrationDate {  get; private set; }
         public Warranty Warranty { get; set; } 
         //images?
-        public TechnicalSpecifications TechnicalSpecifications { get; set; } 
+        public TechnicalSpecifications TechnicalSpecifications { get; set; }
+        public double DiscountedPrice { get; private set; }
 
         //public Item(){}
 
@@ -47,13 +49,20 @@ namespace EletronicStoreManager.Entities
 
         public override string ToString()
         {
+            string priceInfo = DiscountedPrice > 0 ? $"Preço com Desconto: R$ {DiscountedPrice.ToString("N2", CultureInfo.GetCultureInfo("pt-BR"))}"
+                                                   : $"Preço: R$ {Price.ToString("N2", CultureInfo.GetCultureInfo("pt-BR"))}";
             return "[SKU do Produto: " + SkuItem
                 + " | Nome: " + Name
-                + " | Preço: R$ " + Price.ToString("#,##0.00").Replace('.', ',')
+                + " | " + priceInfo
                 + " | Fornecedor: " + Supplier.Name
                 + " | Categoria: " + Category.Name
                 + " | Estoque: " + Stock
                 + " | Data de entrada: " + RegistrationDate.ToString("dd/MM/yyyy") + "]";
+        }
+
+        public void SetDiscountedPrice(double discountedPrice)
+        {
+            DiscountedPrice = discountedPrice;
         }
     }
 }

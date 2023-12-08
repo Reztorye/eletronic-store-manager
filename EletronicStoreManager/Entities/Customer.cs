@@ -8,12 +8,12 @@ namespace EletronicStoreManager.Entities
 {
     internal class Customer
     {
-        private int UpId {  get; set; }
-        private int CustomerId { get; set; } 
-        private string Name { get; set; }
-        private string Address { get; set; }
-        private string Phone { get; set; }
-        private List<string> PurchaseHistory { get; set; }
+        public int UpId {  get; private set; }
+        public int CustomerId { get; private set; } 
+        public string Name { get; private set; }
+        public string Address { get; private set; }
+        public string Phone { get; private set; }
+        //public List<string> PurchaseHistory { get; private set; }
 
         public Customer(string name, string address, string phone)
         {
@@ -29,13 +29,16 @@ namespace EletronicStoreManager.Entities
             Name = name;
             Address = address;
             Phone = phone;
-            PurchaseHistory = purchaseHistory;
+            //PurchaseHistory = purchaseHistory;
         }
         
 
         public override string ToString()
         {
-            return "[ID do Cliente: " + CustomerId +  " | Nome do Cliente: " + Name + " | Endereco do Cliente: " + Address + " | Telefone do Cliente:  " + Phone + "]";
+            return "[ID do Cliente: " + CustomerId 
+                +  " | Nome do Cliente: " + Name 
+                + " | Endereco do Cliente: " + Address 
+                + " | Telefone do Cliente:  " + Phone + "]";
         }
     }
 }

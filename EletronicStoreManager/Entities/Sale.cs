@@ -8,5 +8,7 @@ namespace EletronicStoreManager.Entities
 {
     internal class Sale
     {
+        public int UpId { get; private set; }
+
     }
 }

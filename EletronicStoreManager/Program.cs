@@ -26,18 +26,9 @@ namespace EletronicStoreManager
                                                                                             "Ethernet, IEEE 802.11 a/b/g/n/ac/ax, Bluetooth 5.1",
                                                                                             "4K 120Hz, 8K, VRR (HDMI 2.1)", "N/A", DateTime.Parse("2020, 11, 19"),
                                                                                             "CE, FCC", 4, "358 x 80 x 216 mm", novoItem);
-           /* {
-                PowerType = "AC 100-240V, 50/60Hz",
-                EnergyConsumption = "Approx. 340W",
-                Connectivity = "Ethernet, IEEE 802.11 a/b/g/n/ac/ax, Bluetooth 5.1",
-                OperationRange = "N/A",
-                Resolution = "4K 120Hz, 8K, VRR (HDMI 2.1)",
-                ReleaseDate = new DateTime(2020, 11, 12),
-                Certifications = "CE, FCC",
-                Weight = 4,
-                Dimension = "358 x 80 x 216 mm"
-             };
-           */
+
+            Promotion promotion1 = new Promotion(novoItem, DateTime.Parse("2023-10-20"), DateTime.Parse("2023-12-27"), 50);
+
             novoItem.TechnicalSpecifications = technicalSpecificationsPS5;
             novoItem.Warranty = garantiaNovoItem;
 
@@ -48,6 +39,8 @@ namespace EletronicStoreManager
             Console.WriteLine(novoItem);
             Console.WriteLine(garantiaNovoItem);
             Console.WriteLine(technicalSpecificationsPS5);
+            Console.WriteLine(promotion1);
+            Console.WriteLine(novoItem);
         }
     }
 }
